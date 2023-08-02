@@ -22,18 +22,11 @@ class User {
     get id() {
         return this.#id
     }
-    get name() {
-        return this.name
-    }
-    get phone() {
-        return this.phone
-    }
+   
     get email() {
         return this.email
     }
-    get website() {
-        return this.website
-    }
+   
 
 
     // your methods
