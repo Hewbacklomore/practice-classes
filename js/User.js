@@ -23,7 +23,7 @@ class User {
         return this.#id
     }
    
-    get email() {
+    email() {
         return this.email
     }
    
