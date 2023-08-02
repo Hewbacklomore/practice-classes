@@ -107,6 +107,9 @@ class PhoneBook {
         
     }
 
+    // your methods
+    // All event handlers should be a separate private methods
+
     #eventOnInput() {
         // Event on input
         const listGroup = document.querySelector('.list-group');
@@ -195,8 +198,6 @@ class PhoneBook {
         }, 4000) 
     }
 
-    // your methods
-    // All event handlers should be a separate private methods
 }
 
 
