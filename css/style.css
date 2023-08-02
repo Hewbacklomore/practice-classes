@@ -1,0 +1,15 @@
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 500px;
+}
+.alarm {
+    display: none;
+    margin: 0 auto;
+    border: 2px solid black;
+    background-color: #d3d3e6;
+    width: 200px;
+    height: 100px;
+}
+.text {
+    font-size: 20px;
+    margin: 10px;
+}
