@@ -10,7 +10,8 @@ class CallController {
 
 
     startCall(phone) {
-        if(typeof phone !== 'string' && !phone) throw new Error('invalid number')
+        
+        if(!Call.validatePhone(phone)) throw new Error('invalid number')
 
         this.curruntcALL = new Call(phone)
 
@@ -18,7 +19,17 @@ class CallController {
 
    
     endCall() {
+
+        if(this.curruntcALL === null) throw new Error('there wasnt a call')
+
+        this.#callHistory = this.curruntcALL
+
         this.curruntcALL.state = Call.CALL_STATUSES.disconnected
+        
+    }
+
+    get callHistory() {
+        return this.#callHistory
     }
 
     #setEvents() {
