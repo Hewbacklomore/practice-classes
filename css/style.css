@@ -13,3 +13,15 @@
     font-size: 20px;
     margin: 10px;
 }
+.list-group {
+    display: none;
+}
+.contacts__persons {
+    border: 2px inset black;
+}
+.call__info {
+    display: block;
+    background-color: #d3d3e6;
+    width: 300px;
+    height: 300px;
+}

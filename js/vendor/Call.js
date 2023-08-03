@@ -9,6 +9,10 @@ class Call {
         rejected: 'rejected',
         disconnected: 'disconnected'
     }
+    static EVENT_TYPES = {
+        changeStatus: 'changeStatus',
+        changeDuration: 'changeDuration'
+    }
 
     #status = null
     #phone = null
