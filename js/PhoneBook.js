@@ -189,34 +189,9 @@ class PhoneBook {
     // your methods
     // All event handlers should be a separate private methods
 
-    #eventOnInput() {
-        // Event on input
-      
-    }
+   
 
-    #btnPhone() {
-        // Event on btn
-        
-    }
-
-    #eventOnSearch(person) {
-        // Event on search
-
-       
-    }
-
-    #eventOnItemBox(item, list, person) {
-
-        // Event on list of person which was founded
-        
-        
-    }
-
-    #eventOnRemoved() {
-        //Event on remove
-
-        
-    }
+    
 
     
 
