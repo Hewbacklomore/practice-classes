@@ -1,44 +1,59 @@
 class CallController {
-
-    #callHistory = []
-    curruntcALL = null
+    #currentCall = null;
+    #callHistory = [];
 
     constructor() {
-        this.startCall('4324324324');
-        this.#setEvents();
+      Call.addSubscription(Call.EVENT_TYPES.changeStatus, this.#trackCallStatus)
     }
 
+    startCall({phone}) {
+        if(!Call.validatePhone(phone)) {
+            console.warn('Phone number is not valid');
+            return null;
+        }
 
-    startCall(phone) {
-        
-        if(!Call.validatePhone(phone)) throw new Error('invalid number')
+        if(!this.#currentCall) {
+            this.#currentCall = new Call(phone)
+            console.log(this.#currentCall)
+            return this.#currentCall;
+        }
 
-        this.curruntcALL = new Call(phone)
-
+        console.warn(`You have another call in [${this.#currentCall.status}] status`);
+        return this.#currentCall
     }
-
-   
     endCall() {
+      
+        if(!this.#currentCall) {
+            console.warn('No call in progress');
+            return;
+        }
 
-        if(this.curruntcALL === null) throw new Error('there wasnt a call')
+        this.#currentCall.endCallByCaller();
+        this.#killCurrentCall()
+    }
 
-        this.#callHistory = this.curruntcALL
+    #trackCallStatus = (newStatus, oldStatus) =>  {
+        console.log(newStatus);
+        console.log('CallController track status change: ', oldStatus, '>', newStatus)
+        if(!Call.endCallStatuses.includes(newStatus)) return null;
+        return this.#killCurrentCall()
+    }
 
-        this.curruntcALL.state = Call.CALL_STATUSES.disconnected
-        
+    #killCurrentCall() {
+        this.#callHistory.push(Object.freeze(this.#currentCall));
+        this.#currentCall = null
+        return this.#callHistory.at(-1)
+    }
+
+    get currentCall() {
+        return structuredClone(this.#currentCall)
     }
 
     get callHistory() {
-        return this.#callHistory
-    }
-
-    #setEvents() {
-        
-        
+        return [...this.#callHistory]
     }
 }
 
 
 const callController = new CallController()
-
         

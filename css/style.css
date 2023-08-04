@@ -18,10 +18,26 @@
 }
 .contacts__persons {
     border: 2px inset black;
+    opacity: 0.9;
 }
 .call__info {
     display: block;
     background-color: #d3d3e6;
     width: 300px;
     height: 300px;
+}
+.show {
+    background-color: rgba(30, 27, 31, 0.2);
+}
+.modal-duration {
+    font-size: 19px;
+    font-weight: 600;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+.modal-title {
+    margin-right: 200px;
 }
